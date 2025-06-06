@@ -109,37 +109,45 @@ export default function Home() {
         </form>
 
         {scenario && (
-          <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
-            <div className="prose prose-sm max-w-none whitespace-pre-wrap">
-              {scenario}
+          <div className="space-y-4">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h2 className="text-lg font-semibold mb-2">Scenario</h2>
+              <p className="whitespace-pre-wrap">{scenario}</p>
             </div>
             
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-4">
               <img 
                 src="/9line.png" 
                 alt="9-Line Medevac Reference" 
                 className="max-w-full h-auto rounded-lg shadow-sm"
               />
+              <img 
+                src="/alphabet.png" 
+                alt="NATO Phonetic Alphabet Reference" 
+                className="max-w-full h-auto rounded-lg shadow-sm"
+              />
             </div>
             
-            {cheatsheet && (
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h2 className="text-lg font-semibold mb-2">9-Line Cheatsheet</h2>
+              <p className="text-sm text-gray-600 mb-4">Call +1 (646) 680-0895 to practice the 9-line format</p>
               <details className="group">
-                <summary className="flex items-center gap-2 cursor-pointer text-lg font-semibold text-blue-600 hover:text-blue-700">
-                  <span>9-Line Cheatsheet</span>
-                  <svg 
-                    className="w-4 h-4 transition-transform group-open:rotate-180" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <span className="font-medium">View 9-Line Format</span>
+                  <svg
+                    className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                    fill="none"
                     stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div className="mt-4 whitespace-pre-wrap">
-                  {cheatsheet}
+                <div className="mt-4">
+                  <p className="whitespace-pre-wrap">{cheatsheet}</p>
                 </div>
               </details>
-            )}
+            </div>
           </div>
         )}
       </div>
