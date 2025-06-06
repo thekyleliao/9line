@@ -67,23 +67,31 @@ export default function Home() {
     <main className="container mx-auto p-4 max-w-4xl">
       <div className="space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-green-800">Medevac Scenario Generator</h1>
-          <p className="text-green-700">
+          <h1 className="text-3xl font-bold text-green-900">Medevac Scenario Generator</h1>
+          <a 
+            href="https://9line.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-green-800 hover:text-green-900 underline text-lg font-medium"
+          >
+            https://9line.vercel.app/
+          </a>
+          <p className="text-green-800">
             Generate realistic medevac scenarios for training purposes
           </p>
-          <p className="text-sm text-green-600">
+          <p className="text-sm text-green-700">
             Scenarios Generated: {scenarioCount}
           </p>
         </div>
 
-        <div className="bg-green-50 p-6 rounded-lg shadow-sm space-y-4 border border-green-200">
-          <h2 className="text-lg font-semibold text-green-800">Training Instructions</h2>
-          <ol className="list-decimal list-inside space-y-2 text-green-700">
+        <div className="bg-green-100 p-6 rounded-lg shadow-sm space-y-4 border border-green-300">
+          <h2 className="text-lg font-semibold text-green-900">Training Instructions</h2>
+          <ol className="list-decimal list-inside space-y-2 text-green-800">
             <li>Generate a new scenario using the form below</li>
             <li>Write down your 9-line medevac request</li>
             <li>Compare your version with the AI-generated one</li>
             <li>Call +1 (646) 680-0895 and follow this format:
-              <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-green-600">
+              <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-green-700">
                 <li>"Boiler 6, this is Boiler 1, how copy, over"</li>
                 <li>Wait for response</li>
                 <li>"Line 1, [your line 1], break"</li>
@@ -100,7 +108,7 @@ export default function Home() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-green-700">
+            <label htmlFor="message" className="text-sm font-medium text-green-800">
               Additional Context (Optional)
             </label>
             <textarea
@@ -108,13 +116,13 @@ export default function Home() {
               value={message}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
               placeholder="Enter any additional context or requirements for the scenario..."
-              className="w-full min-h-[100px] p-3 border border-green-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-green-50"
+              className="w-full min-h-[100px] p-3 border border-green-400 rounded-md shadow-sm focus:ring-2 focus:ring-green-600 focus:border-green-600 bg-green-50"
             />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full bg-green-800 text-white py-2 px-4 rounded-md hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? (
               <span className="flex items-center justify-center">
@@ -132,32 +140,32 @@ export default function Home() {
 
         {scenario && (
           <div className="space-y-4">
-            <div className="bg-green-50 p-6 rounded-lg shadow-sm border border-green-200">
-              <h2 className="text-lg font-semibold mb-2 text-green-800">Scenario</h2>
-              <p className="whitespace-pre-wrap text-green-700">{scenario}</p>
+            <div className="bg-green-100 p-6 rounded-lg shadow-sm border border-green-300">
+              <h2 className="text-lg font-semibold mb-2 text-green-900">Scenario</h2>
+              <p className="whitespace-pre-wrap text-green-800">{scenario}</p>
             </div>
             
             <div className="flex justify-center gap-4">
               <img 
                 src="/9line.png" 
                 alt="9-Line Medevac Reference" 
-                className="max-w-full h-auto rounded-lg shadow-sm border border-green-200"
+                className="max-w-full h-auto rounded-lg shadow-sm border border-green-300"
               />
               <img 
                 src="/alphabet.png" 
                 alt="NATO Phonetic Alphabet Reference" 
-                className="max-w-full h-auto rounded-lg shadow-sm border border-green-200"
+                className="max-w-full h-auto rounded-lg shadow-sm border border-green-300"
               />
             </div>
             
-            <div className="bg-green-50 p-6 rounded-lg shadow-sm border border-green-200">
-              <h2 className="text-lg font-semibold mb-2 text-green-800">9-Line Cheatsheet</h2>
-              <p className="text-sm text-green-600 mb-4">Call +1 (646) 680-0895 to practice the 9-line format</p>
+            <div className="bg-green-100 p-6 rounded-lg shadow-sm border border-green-300">
+              <h2 className="text-lg font-semibold mb-2 text-green-900">9-Line Cheatsheet</h2>
+              <p className="text-sm text-green-700 mb-4">Call +1 (646) 680-0895 to practice the 9-line format</p>
               <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer text-green-700">
+                <summary className="flex items-center justify-between cursor-pointer text-green-800">
                   <span className="font-medium">View 9-Line Format</span>
                   <svg
-                    className="w-5 h-5 text-green-600 group-open:rotate-180 transition-transform"
+                    className="w-5 h-5 text-green-700 group-open:rotate-180 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -166,7 +174,7 @@ export default function Home() {
                   </svg>
                 </summary>
                 <div className="mt-4">
-                  <p className="whitespace-pre-wrap text-green-700">{cheatsheet}</p>
+                  <p className="whitespace-pre-wrap text-green-800">{cheatsheet}</p>
                 </div>
               </details>
             </div>
