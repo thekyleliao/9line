@@ -67,18 +67,40 @@ export default function Home() {
     <main className="container mx-auto p-4 max-w-4xl">
       <div className="space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Medevac Scenario Generator</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-green-800">Medevac Scenario Generator</h1>
+          <p className="text-green-700">
             Generate realistic medevac scenarios for training purposes
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-green-600">
             Scenarios Generated: {scenarioCount}
           </p>
         </div>
 
+        <div className="bg-green-50 p-6 rounded-lg shadow-sm space-y-4 border border-green-200">
+          <h2 className="text-lg font-semibold text-green-800">Training Instructions</h2>
+          <ol className="list-decimal list-inside space-y-2 text-green-700">
+            <li>Generate a new scenario using the form below</li>
+            <li>Write down your 9-line medevac request</li>
+            <li>Compare your version with the AI-generated one</li>
+            <li>Call +1 (646) 680-0895 and follow this format:
+              <ul className="list-disc list-inside ml-6 mt-2 space-y-1 text-green-600">
+                <li>"Boiler 6, this is Boiler 1, how copy, over"</li>
+                <li>Wait for response</li>
+                <li>"Line 1, [your line 1], break"</li>
+                <li>"Line 2, [your line 2], break"</li>
+                <li>Continue through all 9 lines</li>
+                <li>End with "over"</li>
+                <li>After conversation, end with "over and out"</li>
+              </ul>
+            </li>
+            <li>Target time: Complete the initial call-up in under 25 seconds</li>
+            <li>The AI will engage in conversation and provide feedback on your performance</li>
+          </ol>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-gray-700">
+            <label htmlFor="message" className="text-sm font-medium text-green-700">
               Additional Context (Optional)
             </label>
             <textarea
@@ -86,13 +108,13 @@ export default function Home() {
               value={message}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
               placeholder="Enter any additional context or requirements for the scenario..."
-              className="w-full min-h-[100px] p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full min-h-[100px] p-3 border border-green-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-green-50"
             />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? (
               <span className="flex items-center justify-center">
@@ -110,32 +132,32 @@ export default function Home() {
 
         {scenario && (
           <div className="space-y-4">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-lg font-semibold mb-2">Scenario</h2>
-              <p className="whitespace-pre-wrap">{scenario}</p>
+            <div className="bg-green-50 p-6 rounded-lg shadow-sm border border-green-200">
+              <h2 className="text-lg font-semibold mb-2 text-green-800">Scenario</h2>
+              <p className="whitespace-pre-wrap text-green-700">{scenario}</p>
             </div>
             
             <div className="flex justify-center gap-4">
               <img 
                 src="/9line.png" 
                 alt="9-Line Medevac Reference" 
-                className="max-w-full h-auto rounded-lg shadow-sm"
+                className="max-w-full h-auto rounded-lg shadow-sm border border-green-200"
               />
               <img 
                 src="/alphabet.png" 
                 alt="NATO Phonetic Alphabet Reference" 
-                className="max-w-full h-auto rounded-lg shadow-sm"
+                className="max-w-full h-auto rounded-lg shadow-sm border border-green-200"
               />
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-lg font-semibold mb-2">9-Line Cheatsheet</h2>
-              <p className="text-sm text-gray-600 mb-4">Call +1 (646) 680-0895 to practice the 9-line format</p>
+            <div className="bg-green-50 p-6 rounded-lg shadow-sm border border-green-200">
+              <h2 className="text-lg font-semibold mb-2 text-green-800">9-Line Cheatsheet</h2>
+              <p className="text-sm text-green-600 mb-4">Call +1 (646) 680-0895 to practice the 9-line format</p>
               <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer">
+                <summary className="flex items-center justify-between cursor-pointer text-green-700">
                   <span className="font-medium">View 9-Line Format</span>
                   <svg
-                    className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                    className="w-5 h-5 text-green-600 group-open:rotate-180 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -144,7 +166,7 @@ export default function Home() {
                   </svg>
                 </summary>
                 <div className="mt-4">
-                  <p className="whitespace-pre-wrap">{cheatsheet}</p>
+                  <p className="whitespace-pre-wrap text-green-700">{cheatsheet}</p>
                 </div>
               </details>
             </div>
